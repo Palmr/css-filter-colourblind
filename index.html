@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS Filter Demo - Colour Blindness</title>	
+	<meta charset="UTF-8">
+  <style>
+		body {
+			font-family: verdana,arial,sans-serif;
+			padding: 20px;
+		}
+	
+		.row {
+			display: block;
+		}
+    .item {
+      position: relative;
+      float: left;
+    }
+		.clearfix {
+			clear: both;
+		}
+    
+    hr {
+			margin: 20px;
+    }
+
+    h2 {
+      color: #229933;
+      background-color: #CCCCFF;
+			margin-top: 0px;
+    }
+
+		/*
+			Here's the custom CSS filter part
+			I don't have any vertex shader, just a fragment shader that I pass a variable (t) to specifying what type to emulate
+		*/
+    .normal {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 0.0);
+    }
+    .protanopia {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 1.0);
+    }
+    .protanomaly {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 2.0);
+    }
+    .deuteranopia {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 3.0);
+    }
+    .deuteranomaly {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 4.0);
+    }
+    .tritanopia {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 5.0);
+    }
+    .tritanomaly {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 6.0);
+    }
+    .achromatopsia {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 7.0);
+    }
+    .achromatomaly {
+      -webkit-filter: custom(none mix(url(colourblind.fs) normal source-atop), t 8.0);
+    }
+  </style>
+</head>
+<body>
+  <h1>Testing colourblindness using custom CSS filters (requires Chrome Canary with CSS filters enabled)</h1>
+	<p>Here are a few test case images. I don&apos;t own the Ishihara testplate images, but they came in handy. If you&apos;re the ghost of Dr. Shinobu Ishihara, please don&apos;t haunt me.</p>
+
+	<div class="row">
+		<div class="item normal">
+			<h2>Normal</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item protanopia">
+			<h2>Protanopia</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item protanomaly">
+			<h2>Protanomaly</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item deuteranopia">
+			<h2>Deuteranopia</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item deuteranomaly">
+			<h2>Deuteranomaly</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item tritanopia">
+			<h2>Tritanopia</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+		<div class="item tritanomaly">
+			<h2>Tritanomaly</h2>
+			<img src="Battersea.jpg"/>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+  <hr/>
+
+	<div class="row">
+		<div class="item normal">
+			<h2>Normal</h2>
+			<img src="Color29.jpg" />
+		</div>
+		<div class="item protanopia">
+			<h2>Protanopia</h2>
+			<img src="Color29.jpg"/>
+		</div>
+		<div class="item protanomaly">
+			<h2>Protanomaly</h2>
+			<img src="Color29.jpg"/>
+		</div>
+		<div class="item deuteranopia">
+			<h2>Deuteranopia</h2>
+			<img src="Color29.jpg"/>
+		</div>
+		<div class="item deuteranomaly">
+			<h2>Deuteranomaly</h2>
+			<img src="Color29.jpg"/>
+		</div>
+		<div class="item tritanopia">
+			<h2>Tritanopia</h2>
+			<img src="Color29.jpg"/>
+		</div>
+		<div class="item tritanomaly">
+			<h2>Tritanomaly</h2>
+			<img src="Color29.jpg"/>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+  <hr/>
+
+	<div class="row">
+		<div class="item normal">
+			<h2>Normal</h2>
+			<img src="Color6.jpg" />
+		</div>
+		<div class="item protanopia">
+			<h2>Protanopia</h2>
+			<img src="Color6.jpg"/>
+		</div>
+		<div class="item protanomaly">
+			<h2>Protanomaly</h2>
+			<img src="Color6.jpg"/>
+		</div>
+		<div class="item deuteranopia">
+			<h2>Deuteranopia</h2>
+			<img src="Color6.jpg"/>
+		</div>
+		<div class="item deuteranomaly">
+			<h2>Deuteranomaly</h2>
+			<img src="Color6.jpg"/>
+		</div>
+		<div class="item tritanopia">
+			<h2>Tritanopia</h2>
+			<img src="Color6.jpg"/>
+		</div>
+		<div class="item tritanomaly">
+			<h2>Tritanomaly</h2>
+			<img src="Color6.jpg"/>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+
+  <hr/>
+
+	<div class="row">
+		<div class="item normal">
+			<h2>Normal</h2>
+			<img src="colorwheel.png" />
+		</div>
+		<div class="item protanopia">
+			<h2>Protanopia</h2>
+			<img src="colorwheel.png"/>
+		</div>
+		<div class="item protanomaly">
+			<h2>Protanomaly</h2>
+			<img src="colorwheel.png"/>
+		</div>
+		<div class="item deuteranopia">
+			<h2>Deuteranopia</h2>
+			<img src="colorwheel.png"/>
+		</div>
+		<div class="item deuteranomaly">
+			<h2>Deuteranomaly</h2>
+			<img src="colorwheel.png"/>
+		</div>
+		<div class="item tritanopia">
+			<h2>Tritanopia</h2>
+			<img src="colorwheel.png"/>
+		</div>
+		<div class="item tritanomaly">
+			<h2>Tritanomaly</h2>
+			<img src="colorwheel.png"/>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+</body>
+</html>
